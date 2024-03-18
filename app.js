@@ -19,6 +19,31 @@ let computerChoice = getComputerChoice()
 let userInput = 'rock';
 let userChoice = userInput.charAt(0).toUpperCase() + userInput.slice(1);
 
+// Play round 
+function playRound(userChoice, computerChoice) {
+    if (userChoice == 'Rock' && computerChoice == 'Scissors') {
+        return('User wins! Rock beats scissors');
+    }
+    else if (userChoice == 'Paper' && computerChoice == 'Rock') {
+        return('User wins! Paper beats rock');
+    }
+    else if (userChoice == 'Scissors' && computerChoice == 'Paper') {
+        return('User wins! Scissors beat paper');
+    }
+    if (userChoice == 'Scissors' && computerChoice == 'Rock') {
+        return('Computer wins! Rock beats scissors');
+    }
+    else if (userChoice == 'Rock' && computerChoice == 'Paper') {
+        return('Computer wins! Paper beats rock');
+    }
+    else if (userChoice == 'Paper' && computerChoice == 'Scissors') {
+        return('Computer wins! Scissors beat paper');
+    }
+    else {
+        return('Tie! Both users picked the same');
+    }
+}
+
 
 console.log(userChoice);
 console.log(computerChoice);
