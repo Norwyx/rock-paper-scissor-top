@@ -64,6 +64,20 @@ function playGame(rounds) {
         // Print out the result of each round
         console.log(playRound(userChoice, computerChoice)); 
     }
+    console.log(findWinner(userScore, computerScore));
+}
+
+// Calculate winner
+function findWinner(userScore, computerScore) {
+    if (userScore > computerScore) {
+        return ('User wins!');
+    }
+    else if (userScore < computerScore) {
+        return ('Computer wins!');
+    }
+    else {
+        return ('Tie!')
+    }
 }
 
 console.log(playGame(5))
