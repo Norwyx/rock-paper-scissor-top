@@ -44,6 +44,8 @@ function playRound(userChoice, computerChoice) {
         return('Computer wins! Scissors beat paper');
     }
     else {
+        computerScore++;
+        userScore++;
         return('Tie! Both users picked the same');
     }
 }
