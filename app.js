@@ -55,8 +55,10 @@ function playGame(rounds) {
         // Get user input and capitalize it
         let userInput = prompt('Enter your choice: ');
         let userChoice = userInput.charAt(0).toUpperCase() + userInput.slice(1);
+
         // Generate random computer choice
-        let computerChoice = getComputerChoice()    
+        let computerChoice = getComputerChoice()  
+        
         // Print out the result of each round
         console.log(playRound(userChoice, computerChoice)); 
     }
