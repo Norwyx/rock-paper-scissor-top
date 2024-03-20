@@ -3,21 +3,17 @@ const OPTIONS = ['Rock', 'Paper', 'Scissors'];
 let userScore = 0;
 let computerScore = 0;
 
-// Get a random number
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-// With a random number from the getRandomInt function, index into the array and get the computer choice
 function getComputerChoice () {
     let randomChoice = OPTIONS[getRandomInt(3)];
     return randomChoice;
 }
 
-// Computer input
 let computerChoice = getComputerChoice()
 
-// Play round 
 function playRound(userChoice, computerChoice) {
     if (userChoice == 'Rock' && computerChoice == 'Scissors') {
         userScore++;
@@ -50,24 +46,18 @@ function playRound(userChoice, computerChoice) {
     }
 }
 
-// Play game
 function playGame(rounds) {
-    // Play the game X amount of times
     for(let i = 0; i < rounds; i++) {
-        // Get user input and capitalize it
         let userInput = prompt('Enter your choice: ');
         let userChoice = userInput.charAt(0).toUpperCase() + userInput.slice(1);
 
-        // Generate random computer choice
         let computerChoice = getComputerChoice()  
         
-        // Print out the result of each round
         console.log(playRound(userChoice, computerChoice)); 
     }
     console.log(findWinner(userScore, computerScore));
 }
 
-// Calculate winner
 function findWinner(userScore, computerScore) {
     if (userScore > computerScore) {
         return ('User wins!');
