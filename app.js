@@ -17,8 +17,6 @@ function getRandomChoice () {
 
 function playRound(userChoice, computerChoice) {
     if (userChoice === computerChoice) {
-        computerScore++;
-        userScore++;
         roundWinner = 'tie'
         return('Tie! Both users picked the same')
     }
@@ -36,7 +34,7 @@ function playRound(userChoice, computerChoice) {
         (userChoice == 'Rock' && computerChoice == 'Paper') || 
         (userChoice == 'Paper' && computerChoice == 'Scissors')
     ) {
-        userScore++;
+        computerScore++;
         roundWinner = 'computer';
         return('Computer wins!');
     }
@@ -44,10 +42,6 @@ function playRound(userChoice, computerChoice) {
 
 function isGameOver() {
     return userScore === 5 || computerScore === 5;
-}
-
-function capitalizeFirstLetter (string) {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase;
 }
 
 
@@ -63,4 +57,12 @@ const paperBtn = document.getElementById('paper-btn');
 const scissorsBtn = document.getElementById('scissors-btn');
 const modal = document.querySelector('.modal');
 const modalMsg = document.getElementById('modal-message')
+const modalBtn = document.querySelector('.modal__play-again');
 const overlay = document.querySelector('.overlay');
+
+rockBtn.addEventListener('click', () => handleClick('Rock'));
+paperBtn.addEventListener('click', () => handleClick('Paper'));
+scissorsBtn.addEventListener('click', () => handleClick('Scissors'));
+modalBtn.addEventListener('click', () => restartGame());
+overlay.addEventListener('click', () => toggleModal());
+
