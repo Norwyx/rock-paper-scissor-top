@@ -42,20 +42,12 @@ function playRound(userChoice, computerChoice) {
     }
 }
 
-function playGame(rounds) {
-    for(let i = 0; i < rounds; i++) {
-        let userInput = prompt('Enter your choice: ');
-        let userChoice = userInput.charAt(0).toUpperCase() + userInput.slice(1);
-
-        let computerChoice = getComputerChoice()  
-        
-        console.log(playRound(userChoice, computerChoice)); 
-    }
-    console.log(findWinner(userScore, computerScore));
-}
-
 function isGameOver() {
     return userScore === 5 || computerScore === 5;
+}
+
+function capitalizeFirstLetter (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase;
 }
 
 
