@@ -1,27 +1,19 @@
-// Constants
-const OPTIONS = ['Rock', 'Paper', 'Scissors'];
+//Game
 let userScore = 0;
 let computerScore = 0;
-const btn = document.querySelectorAll('.choices__btn');
-const choice = document.querySelectorAll('.score__element');
-const userChoiceDiv = document.getElementById('user-choice');
-const computerChoiceDiv = document.getElementById('computer-choice');
-const userScoreDiv = document.getElementById('user-score');
-const computerScoreDiv = document.getElementById('computer-score');
-const scoreboardMsg = document.querySelector('.scoreboard__message');
+let roundWinner = '';
 
-
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+function getRandomChoice () {
+    let randomChoice = Math.floor(Math.random() * 3);
+    switch (randomChoice) {
+        case 0:
+            return 'Rock';
+        case 1:
+            return 'Paper';
+        case 2:
+            return 'Scissors';
+    }
 }
-
-function getComputerChoice () {
-    let randomChoice = OPTIONS[getRandomInt(3)];
-    return randomChoice;
-}
-
-let computerChoice = getComputerChoice()
 
 function playRound(userChoice, computerChoice) {
     if (userChoice == 'Rock' && computerChoice == 'Scissors') {
@@ -79,4 +71,13 @@ function findWinner(userScore, computerScore) {
     }
 }
 
-console.log(playGame(5))
+
+
+// UI
+const btns = document.querySelectorAll('.choices__btn');
+const choiceDivs = document.querySelectorAll('.score__element');
+const userChoiceDiv = document.getElementById('user-choice');
+const computerChoiceDiv = document.getElementById('computer-choice');
+const userScoreDiv = document.getElementById('user-score');
+const computerScoreDiv = document.getElementById('computer-score');
+const scoreboardMsg = document.querySelector('.scoreboard__message');
