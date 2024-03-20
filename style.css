@@ -59,7 +59,9 @@ VARIABLES
     --bg-clr: rgb(38, 38, 55);
     --overlay-clr: rgba(21, 21, 31, 0.496);
     --text-clr: rgb(241, 241, 241);
-    --modal-bg-clr: rgb(30, 30, 44);
+    --modal-bg-clr: rgb(53, 53, 79);
+    --modal-btn-bg-clr: rgb(38, 38, 55);
+    --modal-btn-bg-clr-hover: rgb(30, 30, 44);
     --btn-bg-clr: rgb(53, 53, 77);
     --btn-bg-clr-hover: rgb(88, 88, 129);
 }
@@ -71,10 +73,14 @@ MAIN STYLES
 */
 body {
     font-family: 'Inter', sans-serif;
-    padding: 1rem;
     color: var(--text-clr);
     background-color: var(--bg-clr);
     min-height: 100vh;
+    box-sizing: border-box;
+}
+
+main {
+    margin: 2rem;
 }
 
 .element__choice, .choices__btn {
@@ -107,7 +113,8 @@ body {
 }
 
 .modal {
-    z-index: 1;
+    z-index: 10;
+    position: fixed;
     background-color: var(--modal-bg-clr);
     text-align: center;
     font-size: 2rem;
@@ -121,7 +128,7 @@ body {
 }
 
 .modal__play-again {
-    background-color: var(--btn-bg-clr);
+    background-color: var(--modal-btn-bg-clr);
     padding: .7rem 1.3rem;
     border-radius: 10px;
     font-size: 1.5rem;
@@ -129,7 +136,7 @@ body {
 }
 
 .modal__play-again:hover {
-    background-color: var(--btn-bg-clr-hover);
+    background-color: var(--modal-btn-bg-clr-hover);
 }
 
 .overlay {

@@ -61,10 +61,14 @@ function isGameOver() {
 
 
 // UI
-const btns = document.querySelectorAll('.choices__btn');
-const choiceDivs = document.querySelectorAll('.score__element');
+const scoreboardMsg = document.querySelector('.scoreboard__message');
 const userChoiceDiv = document.getElementById('user-choice');
 const computerChoiceDiv = document.getElementById('computer-choice');
 const userScoreDiv = document.getElementById('user-score');
 const computerScoreDiv = document.getElementById('computer-score');
-const scoreboardMsg = document.querySelector('.scoreboard__message');
+const rockBtn = document.getElementById('rock-btn');
+const paperBtn = document.getElementById('paper-btn');
+const scissorsBtn = document.getElementById('scissors-btn');
+const modal = document.querySelector('.modal');
+const modalMsg = document.getElementById('modal-message')
+const overlay = document.querySelector('.overlay');
