@@ -16,34 +16,29 @@ function getRandomChoice () {
 }
 
 function playRound(userChoice, computerChoice) {
-    if (userChoice == 'Rock' && computerChoice == 'Scissors') {
-        userScore++;
-        return('User wins! Rock beats scissors');
-    }
-    else if (userChoice == 'Paper' && computerChoice == 'Rock') {
-        userScore++;
-        return('User wins! Paper beats rock');
-    }
-    else if (userChoice == 'Scissors' && computerChoice == 'Paper') {
-        userScore++;
-        return('User wins! Scissors beat paper');
-    }
-    if (userChoice == 'Scissors' && computerChoice == 'Rock') {
-        computerScore++;
-        return('Computer wins! Rock beats scissors');
-    }
-    else if (userChoice == 'Rock' && computerChoice == 'Paper') {
-        computerScore++;
-        return('Computer wins! Paper beats rock');
-    }
-    else if (userChoice == 'Paper' && computerChoice == 'Scissors') {
-        computerScore++;
-        return('Computer wins! Scissors beat paper');
-    }
-    else {
+    if (userChoice === computerChoice) {
         computerScore++;
         userScore++;
-        return('Tie! Both users picked the same');
+        roundWinner = 'tie'
+        return('Tie! Both users picked the same')
+    }
+
+    if ((userChoice == 'Rock' && computerChoice == 'Scissors') || 
+        (userChoice == 'Paper' && computerChoice == 'Rock') || 
+        (userChoice == 'Scissors' && computerChoice == 'Paper')
+    ) {
+        userScore++;
+        roundWinner = 'user';
+        return('User wins!');
+    }
+    
+    if ((userChoice == 'Scissors' && computerChoice == 'Rock') || 
+        (userChoice == 'Rock' && computerChoice == 'Paper') || 
+        (userChoice == 'Paper' && computerChoice == 'Scissors')
+    ) {
+        userScore++;
+        roundWinner = 'computer';
+        return('Computer wins!');
     }
 }
 
