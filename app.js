@@ -8,6 +8,9 @@ const userChoiceDiv = document.getElementById('user-choice');
 const computerChoiceDiv = document.getElementById('computer-choice');
 const userScoreDiv = document.getElementById('user-score');
 const computerScoreDiv = document.getElementById('computer-score');
+const scoreboardMsg = document.querySelector('.scoreboard__message');
+
+
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
