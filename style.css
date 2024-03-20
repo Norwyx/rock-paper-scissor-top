@@ -59,7 +59,7 @@ VARIABLES
     --bg-clr: rgb(38, 38, 55);
     --text-clr: rgb(241, 241, 241);
     --btn-bg-clr: rgb(53, 53, 77);
-    --btn-bg-clr-hover: rgba(73, 73, 106, 0.701)
+    --btn-bg-clr-hover: rgb(88, 88, 129)
 }
 
 
@@ -102,4 +102,19 @@ body {
 
 .choices__btn:hover {
     background-color: var(--btn-bg-clr-hover);
+}
+
+/* 
+MEDIA QUERIES
+*/
+
+/* 768px and above */
+@media (min-width: 48rem) {
+    .scoreboard__info {
+        font-size: 3rem;
+    }
+
+    .scoreboard__message, .element__score {
+        font-size: 1.25rem;
+    }
 }
