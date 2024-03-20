@@ -2,6 +2,12 @@
 const OPTIONS = ['Rock', 'Paper', 'Scissors'];
 let userScore = 0;
 let computerScore = 0;
+const btn = document.querySelectorAll('.choices__btn');
+const choice = document.querySelectorAll('.score__element');
+const userChoiceDiv = document.getElementById('user-choice');
+const computerChoiceDiv = document.getElementById('computer-choice');
+const userScoreDiv = document.getElementById('user-score');
+const computerScoreDiv = document.getElementById('computer-score');
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
