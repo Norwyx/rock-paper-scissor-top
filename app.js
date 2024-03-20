@@ -54,16 +54,8 @@ function playGame(rounds) {
     console.log(findWinner(userScore, computerScore));
 }
 
-function findWinner(userScore, computerScore) {
-    if (userScore > computerScore) {
-        return ('User wins!');
-    }
-    else if (userScore < computerScore) {
-        return ('Computer wins!');
-    }
-    else {
-        return ('Tie!')
-    }
+function isGameOver() {
+    return userScore === 5 || computerScore === 5;
 }
 
 
