@@ -83,6 +83,10 @@ body {
     margin: 3rem 0;
 }
 
+.element__score {
+    font-weight: 700;
+}
+
 .scoreboard__choices {
     gap: .5rem;
     justify-content: space-around;
