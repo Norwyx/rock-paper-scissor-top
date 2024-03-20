@@ -18,7 +18,6 @@ function getRandomChoice () {
 function playRound(userChoice, computerChoice) {
     if (userChoice === computerChoice) {
         roundWinner = 'tie'
-        return('Tie! Both users picked the same')
     }
 
     if ((userChoice == 'Rock' && computerChoice == 'Scissors') || 
@@ -27,7 +26,6 @@ function playRound(userChoice, computerChoice) {
     ) {
         userScore++;
         roundWinner = 'user';
-        return('User wins!');
     }
     
     if ((userChoice == 'Scissors' && computerChoice == 'Rock') || 
@@ -36,7 +34,6 @@ function playRound(userChoice, computerChoice) {
     ) {
         computerScore++;
         roundWinner = 'computer';
-        return('Computer wins!');
     }
 }
 
@@ -66,3 +63,81 @@ scissorsBtn.addEventListener('click', () => handleClick('Scissors'));
 modalBtn.addEventListener('click', () => restartGame());
 overlay.addEventListener('click', () => toggleModal());
 
+function handleClick (userChoice) {
+    if (isGameOver()) {
+        toggleModal();
+        return;
+    }
+
+    let computerChoice = getRandomChoice();
+    playRound(userChoice, computerChoice);
+    updateChoiceDiv(userChoice, computerChoice);
+    updateScore(userChoice, computerChoice)
+
+    if (isGameOver()) {
+        toggleModal();
+        findWinner();
+        return;
+    }
+}
+
+function updateChoiceDiv (userChoice, computerChoice) {
+    switch (userChoice) {
+        case 'Rock':
+            userChoiceDiv.textContent = '✊🏻';
+            break;
+        case 'Paper':
+            userChoiceDiv.textContent = '✋🏻';
+            break;
+        case 'Scissors':
+            userChoiceDiv.textContent = '✌🏻';
+            break;
+    }
+
+    switch (computerChoice) {
+        case 'Rock':
+            computerChoiceDiv.textContent = '✊🏻';
+            break;
+        case 'Paper':
+            computerChoiceDiv.textContent = '✋🏻';
+            break;
+        case 'Scissors':
+            computerChoiceDiv.textContent = '✌🏻';
+            break;
+    }
+}
+
+function updateScore (userChoice, computerChoice) {
+    if (roundWinner === 'tie') {
+        scoreboardMsg.textContent = 'Tie! Both users picked the same'
+    }
+    else if (roundWinner === 'user') {
+        scoreboardMsg.textContent = `User wins! ${userChoice} beats ${computerChoice}`
+    }
+    else if (roundWinner === 'computer') {
+        scoreboardMsg.textContent = `Computer wins! ${computerChoice} beats ${userChoice}`
+    }
+
+    userScoreDiv.textContent = userScore;
+    computerScoreDiv.textContent = computerScore;
+}
+
+function toggleModal () {
+    modal.classList.toggle('hidden')
+    overlay.classList.toggle('hidden')
+}
+
+function findWinner () {
+    return userScore > computerScore ? (modalMsg.textContent = 'won!') : (modalMsg.textContent = 'lost...')
+}
+
+function restartGame () {
+    toggleModal();
+    userScore = 0;
+    computerScore = 0;
+    userChoiceDiv.textContent = '❓';
+    computerChoiceDiv.textContent = '❓';
+    scoreboardMsg.textContent = 'First one to get 5 points wins the game';
+    userScoreDiv.textContent = 0;
+    computerScoreDiv.textContent = 0;
+}
