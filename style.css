@@ -75,10 +75,6 @@ body {
     min-height: 100vh;
 }
 
-.pure-g > button {
-    box-sizing: border-box;
-}
-
 .element__choice, .choices__btn {
     font-size: 4rem
 }
